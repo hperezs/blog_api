@@ -1,6 +1,7 @@
 const express = require("express");
 const serverless = require("serverless-http");
 const app = express();
+const csp = require('helmet-csp');
 const PostHandler = require('./api/models/PostsHandler');
 const postHandler = new PostHandler();
 var multer = require('multer');
@@ -31,9 +32,14 @@ const router = express.Router();
 
 app.use('/.netlify/functions/app', router);
 
+app.use(csp({
+    directives: {
+        defaultSrc: ['self']
+    }
+}))
+
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", '*');
-    res.setHeader("Content-Security-Policy: default-src 'self'");
     next();
 })
 
