@@ -34,7 +34,7 @@ app.use('/.netlify/functions/app', router);
 
 app.use(csp({
     directives: {
-        defaultSrc: ['self']
+        defaultSrc: [`'self'`]
     }
 }))
 
