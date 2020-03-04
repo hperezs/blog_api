@@ -32,11 +32,11 @@ const router = express.Router();
 
 app.use('/.netlify/functions/app', router);
 
-app.use(csp({
-    directives: {
-        defaultSrc: [`'self'`]
-    }
-}))
+// app.use(csp({
+//     directives: {
+//         defaultSrc: [`'self'`]
+//     }
+// }))
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", '*');
