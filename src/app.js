@@ -32,12 +32,6 @@ const router = express.Router();
 
 app.use('/.netlify/functions/app', router);
 
-// app.use(csp({
-//     directives: {
-//         defaultSrc: [`'self'`]
-//     }
-// }))
-
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", '*');
     next();
@@ -48,9 +42,7 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
 router.get('/', (req, res) => {
-    res.json({
-        'hey': 'this works'
-    })
+    res.json(postHandler.getData())
 });
 
 router.get("/api/posts", (req, res) => {
