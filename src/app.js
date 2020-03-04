@@ -54,7 +54,7 @@ router.get('/', (req, res) => {
 });
 
 router.get("/api/posts", (req, res) => {
-    res.status(200).send(postHandler.getData());
+    res.json(postHandler.getData());
 });
 
 router.get("/api/posts/:post_id", (req, res) => {
