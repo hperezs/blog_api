@@ -59,7 +59,7 @@ app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
 router.get('/', (req, res) => {
-    res.json(data);
+    res.json(postHandler.getData());
 });
 
 router.get("/api/posts", (req, res) => {

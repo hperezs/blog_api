@@ -4,7 +4,8 @@ const fs = require('fs');
 class PostsHandler {
     getData() {
         // Get list of posts
-        return this.readData();
+        //return this.readData();
+        return {"hey": "this works!!!"}
     }
 
     getIndividualBlog(id){
