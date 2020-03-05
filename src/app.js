@@ -45,11 +45,11 @@ router.get('/', (req, res) => {
     res.json(postHandler.getData());
 });
 
-router.get("/api/posts", (req, res) => {
+router.get("/posts", (req, res) => {
     res.json(postHandler.getData());
 });
 
-router.get("/api/posts/:post_id", (req, res) => {
+router.get("/posts/:post_id", (req, res) => {
     let postId = req.params.post_id;
     let foundPost = postHandler.getIndividualBlog(postId);
     if (foundPost) {
@@ -60,7 +60,7 @@ router.get("/api/posts/:post_id", (req, res) => {
 
 });
 
-router.post("/api/posts/", upload.single('post_image'), (req, res) => {
+router.post("/posts/", upload.single('post_image'), (req, res) => {
     console.log(req.file);
     const newPost = {
         'id': `${Date.now()}`,
