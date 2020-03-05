@@ -1,11 +1,11 @@
-const DATA_PATH = "./data.json";
+const DATA_PATH = "../../data.json";
+var data = require("../../data.json");
 const fs = require('fs');
 
 class PostsHandler {
     getData() {
         // Get list of posts
-        //return this.readData();
-        return {"hey": "this works!!!"}
+        return data;
     }
 
     getIndividualBlog(id){
@@ -23,15 +23,12 @@ class PostsHandler {
     }
 
     readData(){
-        console.log('\n *READING JSON FILE* \n');
-        var data = fs.readFileSync(DATA_PATH);
-        var data_JSON = JSON.parse(data);
-        return data_JSON;
+        return data = require("../../data.json");
     }
 
     storeData(rawData){
-        let data = JSON.stringify(rawData);
-        fs.writeFileSync(DATA_PATH, data);
+        let data_json = JSON.stringify(rawData);
+        fs.writeFileSync(DATA_PATH, data_json);
     }
 }
 
